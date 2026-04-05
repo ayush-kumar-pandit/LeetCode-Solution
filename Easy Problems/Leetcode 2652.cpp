@@ -1,4 +1,4 @@
-5class Solution {
+class Solution {
 public:
     int sumOfMultiples(int n) {
         int sum = 0;
