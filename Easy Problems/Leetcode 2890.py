@@ -1,0 +1,5 @@
+import pandas as pd
+
+def meltTable(report: pd.DataFrame) -> pd.DataFrame:
+    df = report.melt('product',['quarter_1','quarter_2','quarter_3','quarter_4'],var_name='quarter',value_name='sales')
+    return df
