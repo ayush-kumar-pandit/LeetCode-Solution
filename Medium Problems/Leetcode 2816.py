@@ -5,18 +5,14 @@
 #         self.next = next
 class Solution:
     def doubleIt(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        num = 0
-        temp = head
-        while temp:
-            num = num * 10 + temp.val
-            temp = temp.next
-        if num:
-            num *= 2
-            ans = None
-            while num:
-                x = num % 10
-                ans = ListNode(x,ans)
-                num //= 10
-            return ans
-        else:
-            return head
+        head = ListNode(val=0, next=head)
+
+        curr = head
+        while curr and curr.next:
+            d = curr.next.val * 2
+            curr.val += d // 10
+            curr.next.val = d % 10
+            curr = curr.next
+        if head.val == 0:
+            return head.next
+        return head
